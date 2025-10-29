@@ -1,0 +1,14 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="error-wrapper">
+  <div class="custom-error-card">
+    <div class="error-icon">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <h3 class="error-title">Error <%= statusCode %></h3>
+    <p class="error-message"><%= message %></p>
+    <a href="/listings" class="btn-error-home">
+      <i class="fa-solid fa-arrow-left me-2"></i> Back to Home
+    </a>
+  </div>
+</div>
