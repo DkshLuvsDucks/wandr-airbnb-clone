@@ -6,19 +6,18 @@
     </h3>
 
     <div class="listing-detail-card shadow-sm rounded overflow-hidden mb-4">
-        <img src="<%=listing.image%>" alt="<%=listing.title%>" class="img-fluid listing-detail-img">
+        <img src="<%=listing.image.url%>" alt="<%=listing.title%>" class="img-fluid listing-detail-img">
 
         <div class="p-4 bg-white">
             <div class="owner-box d-flex align-items-center p-3 mb-4">
-  <div class="owner-icon me-3 d-flex align-items-center justify-content-center">
-    <i class="fa-solid fa-user"></i>
-  </div>
-  <div>
-    <p class="mb-0 text-muted small">Owned by</p>
-    <p class="mb-0 fw-semibold username">@<%= listing.owner.username %></p>
-  </div>
-</div>
-
+              <div class="owner-icon me-3 d-flex align-items-center justify-content-center">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div>
+                <p class="mb-0 text-muted small">Owned by</p>
+                <p class="mb-0 fw-semibold username">@<%= listing.owner.username %></p>
+              </div>
+            </div>
             
             <h4 class="mb-2 card-title">
                 <%=listing.title%>
@@ -65,7 +64,7 @@
         <label class="form-label">Your Rating</label>
         <div class="rating-stars d-inline-flex flex-row-reverse justify-content-center" id="rating">
           <% for (let i = 5; i >= 1; i--) { %>
-            <input type="radio" id="star<%= i %>" name="review[rating]" value="<%= i %>" <%= i === 3 ? 'checked' : '' %> required>
+            <input type="radio" id="star<%= i %>" name="review[rating]" value="<%= i %>" <%= i === 1 ? 'checked' : '' %> required>
             <label for="star<%= i %>" title="<%= i %> stars">&#9733;</label>
           <% } %>
         </div>

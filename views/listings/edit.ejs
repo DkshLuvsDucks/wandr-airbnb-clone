@@ -3,8 +3,13 @@
 <div class="container form-container">
     <h3 class="page-heading">Edit <span>Listing</span></h3>
 
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT"
-        class="listing-form needs-validation shadow-sm p-4 rounded" novalidate>
+    <form 
+        method="POST" 
+        action="/listings/<%= listing._id %>?_method=PUT"
+        class="listing-form needs-validation shadow-sm p-4 rounded" 
+        novalidate
+        enctype="multipart/form-data"
+    >
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input id="title" name="listing[title]" value="<%= listing.title %>" placeholder="Enter Title"
@@ -22,11 +27,15 @@
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input id="image" name="listing[image]" value="<%= listing.image %>"
-                placeholder="Enter Image URL/Link" type="text" class="form-control" required>
+            <label class="form-label">Original Listing Image</label>
+            <img src="<%=originalImageURL%>">
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload Listing Image</label>
+            <input id="image" name="listing[image]" type="file" class="form-control">
             <div class="valid-feedback">Image looks good!</div>
-            <div class="invalid-feedback">Please enter a valid image link</div>
+            <div class="invalid-feedback">Please upload an image</div>
         </div>
 
         <div class="row mb-3">
