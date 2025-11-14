@@ -747,3 +747,18 @@ footer {
   color: #d83a43;
   text-decoration: underline;
 }
+
+/* ===== Map Styling ===== */
+#map {
+  height: clamp(250px, 40vh, 450px);
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 576px) {
+  #map {
+    border-radius: 8px;
+  }
+}
