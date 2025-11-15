@@ -1,25 +1,91 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
+
     <a class="navbar-brand" href="/listings">
       <i class="fa-regular fa-compass"></i>
     </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+
+      <!-- LEFT LINKS -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+      </ul>
+
+      <!-- CENTERED SEARCH BAR -->
+      <form action="/listings" method="GET"
+            class="d-flex search-bar mx-auto">
+
+        <input 
+          class="form-control search-input"
+          type="search"
+          name="q"
+          placeholder="Search listings..."
+          aria-label="Search"
+        >
+
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- RIGHT SIDE: BUTTON + DROPDOWN -->
+      <div class="d-flex align-items-center gap-3">
+
+        <!-- AIRBNB YOUR HOME BUTTON -->
+        <a href="/listings/new" class="btn wandr-btn">
+          Host with Wandr
+        </a>
+
+        <!-- PROFILE DROPDOWN -->
+        <div class="dropdown">
+
+        <!-- LOGGED OUT STATE -->
+        <% if (!currUser) { %>
+          <button class="btn profile-pill" data-bs-toggle="dropdown">
+            <i class="fa-regular fa-circle-user"></i>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end user-menu">
+            <li>
+              <a class="dropdown-item" href="/signup">
+                <i class="fa-solid fa-user-plus me-2"></i> Sign Up
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/login">
+                <i class="fa-solid fa-right-to-bracket me-2"></i> Log In
+              </a>
+            </li>
+          </ul>
+        <% } %>
+
+
+        <!-- LOGGED IN STATE -->
+        <% if (currUser) { %>
+          <button class="btn profile-pill" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i>
+            <span class="username-text"><%= currUser.username %></span>
+          </button>
+
+          <ul class="dropdown-menu dropdown-menu-end user-menu">
+            <li>
+              <a class="dropdown-item" href="/logout">
+                <i class="fa-solid fa-right-from-bracket me-2"></i> Logout
+              </a>
+            </li>
+          </ul>
+        <% } %>
+
       </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser){%>
-          <a class="nav-link fw-bold" href="/signup">Signup</a>
-          <a class="nav-link fw-bold" href="/login">Login</a>
-        <%}%>
-        <% if(currUser){%>
-          <a class="nav-link fw-bold" href="/logout">Logout</a>
-        <%}%>
-      </div>
+
+
     </div>
   </div>
 </nav>

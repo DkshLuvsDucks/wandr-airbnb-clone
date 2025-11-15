@@ -12,6 +12,180 @@ body {
 
 /* ========= ALL LISTINGS ========= */
 
+/* FILTER WRAPPER */
+.filter-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 0; 
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+}
+
+/* ARROW BUTTONS */
+.scroll-arrow {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    transition: 0.2s ease;
+}
+
+.scroll-arrow i {
+    font-size: 14px;
+}
+
+.scroll-arrow:hover {
+    background: #f3f3f3;
+    border-color: #ccc;
+}
+
+/* FILTER LIST */
+#filters {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 26px;
+    padding: 0 10px;
+    flex: 1;
+}
+
+#filters::-webkit-scrollbar {
+    display: none;
+}
+
+/* FILTER ITEM */
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.60;
+    transition: 0.2s;
+    min-width: 60px;
+    padding: 6px 0 6px 0;
+}
+
+.filter i {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #444;
+    line-height: 1.2;
+}
+
+.filter p {
+    font-size: 12px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.filter.active,
+.filter:hover {
+    opacity: 1;
+}
+
+.filter.active {
+    border-bottom: 2px solid #000;
+}
+
+/* TAX SWITCH */
+.tax-card-wrapper {
+    margin-left: 10px;
+}
+
+/* TAX SWITCH - card wrapper */
+.tax-card-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Card look */
+.tax-card {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #eee;                 
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(16,24,40,0.04);
+}
+
+.tax-card .form-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Switch size adjustments (override Bootstrap defaults) */
+.tax-card .form-check-input {
+  width: 44px;            
+  height: 24px;           
+  -webkit-appearance: none;
+  appearance: none;
+  background: #e9ecef;   
+  border-radius: 999px;
+  position: relative;
+  outline: none;
+  border: 1px solid #e3e6ea;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, box-shadow .12s ease;
+}
+
+.tax-card .form-check-input::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(16,24,40,0.12);
+  transition: left .16s ease, transform .16s ease;
+}
+
+/* checked state */
+.tax-card .form-check-input:checked {
+  background: #fe424d; /* your pink */
+  border-color: #fe424d;
+  box-shadow: 0 4px 10px rgba(254,66,77,0.14);
+}
+
+.tax-card .form-check-input:checked::after {
+  left: calc(100% - 21px); /* moves knob to right end */
+}
+
+/* focus state */
+.tax-card .form-check-input:focus {
+  box-shadow: 0 0 0 0.18rem rgba(254,66,77,0.12);
+}
+
+/* Label text */
+.tax-card .switch-text {
+  font-size: 14px;
+  color: #444;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@media (max-width: 576px) {
+  .tax-card {
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+  .tax-card .form-check-input { width: 38px; height: 20px; }
+  .tax-card .form-check-input::after { width: 16px; height: 16px; left: 3px; }
+  .tax-card .form-check-input:checked::after { left: calc(100% - 19px); }
+  .tax-card .switch-text { font-size: 13px; }
+}
+
 /* Page Heading */
 .page-heading {
     font-weight: 800;
@@ -41,6 +215,103 @@ body {
 .nav-link {
     color: #222;
 }
+
+/* -------- SEARCH BAR -------- */
+.search-bar {
+  max-width: 420px;
+  width: 100%;
+}
+
+.search-input {
+  border-radius: 30px 0 0 30px;
+  padding-left: 16px;
+}
+
+.search-btn {
+  background-color: #FF385C;
+  color: white;
+  border-radius: 0 30px 30px 0;
+  padding: 0 16px;
+  border: none;
+}
+
+.search-btn:hover {
+  background-color: #e03353;
+  color: white;
+}
+
+/* -------- AIRBNB YOUR HOME BUTTON -------- */
+.wandr-btn {
+  background-color: #FF385C;
+  color: white;
+  border-radius: 24px;
+  padding: 6px 16px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.wandr-btn:hover {
+  background-color: #e03353;
+  color: white;
+}
+
+/* ---------------- PILL BUTTON ---------------- */
+.profile-pill {
+  padding: 6px 18px;              /* same height feel as Wandr button */
+  height: 40px;                   /* FIXES exact alignment */
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;                       /* REDUCED spacing */
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.profile-pill:hover {
+  background: #f7f7f7;
+}
+
+/* Icon size visually balanced with pill */
+.profile-pill i {
+  font-size: 17px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Prevent username from drifting */
+.username-text {
+  margin-left: 2px;              /* MUCH tighter */
+  white-space: nowrap;
+}
+
+/* ---------------- DROPDOWN ---------------- */
+.user-menu {
+  border-radius: 14px;
+  padding: 8px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.user-menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.user-menu .dropdown-item i {
+  font-size: 15px;
+  color: #666;
+}
+
+.user-menu .dropdown-item:hover {
+  background: #f7f7f7;
+}
+
 
 /* Footer */
 footer {
@@ -761,4 +1032,120 @@ footer {
   #map {
     border-radius: 8px;
   }
+}
+
+.airbnb-marker {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.airbnb-marker:hover {
+  transform: translateY(-4px) scale(1.06);
+  filter: drop-shadow(0 6px 14px rgba(254, 66, 77, 0.28)); 
+}
+
+.pulse-circle {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(254, 66, 77, 0.18); 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseAirbnb 2.4s infinite ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes pulseAirbnb {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.marker-icon {
+  width: 42px;
+  height: 42px;
+  background-color: #fe424d;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  transition: transform 0.2s ease;
+}
+
+.airbnb-marker:hover .marker-icon {
+  transform: scale(1.08);
+}
+
+.mapboxgl-popup {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  max-width: 260px;
+}
+
+/* The main popup box */
+.mapboxgl-popup-content {
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+  background: #ffffff;
+  border: 1px solid #e9e9e9 !important;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.18) !important;
+}
+
+/* Title */
+.popup-content h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: -0.2px;
+}
+
+/* Location (subheading) */
+.popup-sub {
+  font-size: 0.92rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Note under location */
+.popup-note {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #777;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Close button */
+.mapboxgl-popup-close-button {
+  font-size: 22px;
+  padding: 4px;
+  top: 6px;
+  right: 8px;
+  color: #444 !important;
+  transition: color 0.2s ease;
+}
+.mapboxgl-popup-close-button:hover {
+  color: #fe424d !important;
+}
+
+/* Popup arrow */
+.mapboxgl-popup-tip {
+  border-top-color: #fff !important;
 }
