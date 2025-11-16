@@ -1,5 +1,9 @@
 <% layout("/layouts/boilerplate") %>
 
+<script>
+    window.LISTINGS_DATA = <%- JSON.stringify(listings) %>;
+</script>
+
 <div class="container">
 
     <div class="filter-bar-wrapper">
@@ -143,8 +147,8 @@
 
 <div class="container pb-5 mt-5">
     <div class="row justify-content-center g-4">
-        <%for(let listing of allListings){%>
-            <div class="col-lg-4 col-md-6 col-sm-12">
+        <%for(let listing of listings){%>
+            <div class="col-lg-4 col-md-6 col-sm-12 listing-wrapper" data-id="<%= listing._id %>">
                 <a href="/listings/<%=listing._id%>" class="listing-link">
                     <div class="card listing-card h-100">
                         <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_image">

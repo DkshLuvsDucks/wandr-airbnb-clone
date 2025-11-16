@@ -19,21 +19,17 @@
       </ul>
 
       <!-- CENTERED SEARCH BAR -->
-      <form action="/listings" method="GET"
-            class="d-flex search-bar mx-auto">
-
+      <div class="d-flex search-bar mx-auto">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input 
+          id="searchInput"
           class="form-control search-input"
           type="search"
           name="q"
           placeholder="Search listings..."
           aria-label="Search"
         >
-
-        <button class="btn search-btn" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
+      </div>
 
       <!-- RIGHT SIDE: BUTTON + DROPDOWN -->
       <div class="d-flex align-items-center gap-3">
@@ -45,7 +41,7 @@
 
         <!-- PROFILE DROPDOWN -->
         <div class="dropdown">
-
+        
         <!-- LOGGED OUT STATE -->
         <% if (!currUser) { %>
           <button class="btn profile-pill" data-bs-toggle="dropdown">
@@ -65,7 +61,6 @@
             </li>
           </ul>
         <% } %>
-
 
         <!-- LOGGED IN STATE -->
         <% if (currUser) { %>

@@ -1,12 +1,13 @@
-const { Query } = require("mongoose");
 const Listing = require("../models/listing.js");
 const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
 const mapToken = process.env.MAP_TOKEN;
 const geoCodingClient = mbxGeocoding({accessToken: mapToken});
+const escapeRegex = require("../utils/escapeRegex");
+const sanitize = require("../utils/sanitize");
 
 module.exports.index = async (req, res)=>{
-    let allListings = await Listing.find({});
-    res.render("./listings/index", {allListings});
+    const listings = await Listing.find({});
+    res.render("./listings/index", {listings});
 };
 
 module.exports.renderNewForm = (req,res)=>{
